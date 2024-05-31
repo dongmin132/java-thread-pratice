@@ -41,7 +41,7 @@ public class Main {
                 int input = Integer.parseInt(scanner.nextLine());
                 if (input == 1) {
                     synchronized (lock) {
-                        orderQueue.add(new OrderItem("피자", 20));
+                        orderQueue.add(new OrderItem("피자", 2));
                         lock.notifyAll(); // Notify all waiting threads
                         System.out.println("새 주문이 추가되었습니다.");
                     }

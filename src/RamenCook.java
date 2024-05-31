@@ -35,7 +35,12 @@ public class RamenCook implements Runnable {
                     }
                 }
 
-                currentOrder = orderQueue.get(0);
+                try {
+                    currentOrder = orderQueue.get(0);
+                } catch(IndexOutOfBoundsException e) {
+                    System.out.println(Thread.currentThread().getName() + "은 쉴수 있습니다");
+                    continue;
+                }
                 if (currentOrder.getCount() <= 0) {
                     orderQueue.remove(0);
                     continue;
